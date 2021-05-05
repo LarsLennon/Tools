@@ -1,0 +1,49 @@
+﻿@page
+@model ToolSmukfest.Areas.Admin.Pages.Teams.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Team</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Team.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Team.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Team.Number)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Team.Number)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Team.IsGroup)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Team.IsGroup)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Team.LastSynchronization)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Team.LastSynchronization)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Team.Parent)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Team.Parent.TeamId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Team.TeamId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

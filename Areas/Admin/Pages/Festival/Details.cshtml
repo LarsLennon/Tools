@@ -1,0 +1,38 @@
+﻿@page
+@model ToolSmukfest.Areas.Admin.Pages.Festivals.DetailsModel
+
+@{
+    ViewData["Title"] = @Model.Festival.Title;
+}
+
+<h1>@ViewData["Title"]</h1>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="dropdown" style="display: inline;">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                Action <div class="caret"></div>
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a asp-page="/Section/Create" asp-route-festivalId="@Model.Festival.FestivalId">
+                        <span class="glyphicon glyphicon-plus"></span> New Section
+                    </a>
+                </li>
+                <li>
+                    <a asp-page="/Festival/Edit" asp-route-id="@Model.Festival.FestivalId">
+                        <span class="glyphicon glyphicon-pencil"></span> Edit Festival
+                    </a>
+                </li>
+                <li>
+                    <a asp-page="/Festival/Delete" asp-route-id="@Model.Festival.FestivalId" style="color: crimson;">
+                        <span class="glyphicon glyphicon-trash"></span> Delete Festival
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<hr />
+
+<h2>Sections</h2>
+<partial name="_ListSections" model="Model.Festival.Sections.ToList()" />

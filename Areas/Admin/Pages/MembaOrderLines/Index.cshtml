@@ -1,0 +1,60 @@
+﻿@page
+@model ToolSmukfest.Areas.Admin.Pages.MembaOrderLines.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MembaOrderLine[0].From)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MembaOrderLine[0].To)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MembaOrderLine[0].Product)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MembaOrderLine[0].Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MembaOrderLine[0].ItemType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.MembaOrderLine) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.From)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.To)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemType.ItemTypeId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.MembaOrderLineId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.MembaOrderLineId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.MembaOrderLineId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

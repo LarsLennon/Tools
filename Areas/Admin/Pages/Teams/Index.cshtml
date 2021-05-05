@@ -1,0 +1,83 @@
+﻿@page
+@model ToolSmukfest.Areas.Admin.Pages.Teams.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Teams</h1>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="dropdown" style="display: inline;">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                Action <div class="caret"></div>
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a asp-page="/Teams/MembaSync">
+                        <span class="glyphicon glyphicon-transfer"></span> Sync with Memba
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<hr />
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Team[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Team[0].TeamId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Team[0].Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Team[0].IsGroup)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Team[0].LastSynchronization)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Team[0].Parent)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Team) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsGroup)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastSynchronization)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Parent.TeamId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.TeamId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.TeamId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.TeamId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

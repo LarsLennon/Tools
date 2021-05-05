@@ -1,0 +1,47 @@
+﻿@page
+@model ToolSmukfest.Areas.Admin.Pages.Festivals.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Festivals</h1>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="dropdown" style="display: inline;">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                Action <div class="caret"></div>
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a asp-page="/Festival/Create">
+                        <span class="glyphicon glyphicon-plus"></span> New Festival
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<hr />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Festival[0].Title)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Festival)
+        {
+            <tr>
+                <td>
+                    <a asp-page="./Details" asp-route-id="@item.FestivalId">
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

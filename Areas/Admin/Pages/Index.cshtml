@@ -1,0 +1,36 @@
+﻿@page
+@model ToolSmukfest.Admin.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h2>Administrator Page</h2>
+@*<a asp-area="" asp-page="/Privacy">Privacy1</a>
+
+    <a asp-area="Services" asp-controller="Home" asp-action="About">
+        Services About
+    </a>*@
+
+<a class="btn btn-info" asp-area="Admin" asp-page="/Festival/Index">
+    <span class="glyphicon glyphicon-tree-deciduous" aria-hidden="true"></span> Festivaller
+</a>
+<a class="btn btn-info" asp-area="Admin" asp-page="/Section">
+    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Sections
+</a>
+<a class="btn btn-info" asp-area="Admin" asp-page="/Events">
+    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Events
+</a>
+<br />
+<hr />
+<a class="btn btn-info" asp-area="Admin" asp-page="/Members/Index">
+    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Members
+</a>
+<a class="btn btn-info" asp-area="Admin" asp-page="/Teams/Index">
+    <span class="glyphicon glyphicon-book" aria-hidden="true"></span> Teams
+</a>
+
+
+
+

@@ -1,0 +1,77 @@
+﻿@model ToolSmukfest.Models.DTO.PageList<ToolSmukfest.Models.Member>
+
+
+@if (Model.TotalPages > 0)
+{
+    <nav aria-label="Page navigation">
+        <ul class="pager">
+            @for (int i = Model.FirstPage; i <= Model.TotalPages; i++)
+            {
+                <li class="previous"><a href="#" onclick="GetPageData(@i)"><i class="fa fa-fast-backward"></i>&nbsp;@i</a></li>
+            }
+        </ul>
+        <p>Showing: @Model.CurrentPage of @Model.TotalPages pages</p>
+
+
+    </nav>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="col-md-1">
+                Bekræftet
+            </th>
+            <th class="col-md-1">
+                MembaNr
+            </th>
+            <th>
+                Navn
+            </th>
+            <th>
+                Title
+            </th>
+            <th>
+                23+Kørekort
+            </th>
+            <th>
+                Erfaren
+            </th>
+            <th>
+                Enheder
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MembaNumber)
+                </td>
+                @*<td>
+                    <a asp-action="Details" asp-route-id="@item.Id">
+                        @Html.DisplayFor(modelItem => item.MembaNr)
+                    </a>
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MembaTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.K23)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Experienced)
+                </td>
+                <td>
+                    @await Component.InvokeAsync("TotalUnits", new { userId = item.Id })
+                </td>*@
+            </tr>
+        }
+    </tbody>
+</table>

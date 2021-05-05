@@ -1,0 +1,99 @@
+﻿@page
+@model ToolSmukfest.Areas.Admin.Pages.ItemTypes.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1><a asp-page="/Festival/Details" asp-route-id="@ViewData["festivalId"]">@ViewData["festivalTitle"]</a> > <a asp-page="/Section/Details" asp-route-id="@ViewData["sectionId"]">@ViewData["sectionTitle"]</a> > Item Types</h1>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="dropdown" style="display: inline;">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                Action <div class="caret"></div>
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a asp-page="/ItemTypes/Create" asp-route-sectionId="@ViewData["sectionId"]">
+                        <span class="glyphicon glyphicon-plus"></span> New Item Type
+                    </a>
+                </li>
+                <li>
+                    <a asp-page="/ItemTypes/Import" asp-route-sectionId="@ViewData["sectionId"]">
+                        <span class="glyphicon glyphicon-plus"></span> Import Types
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<hr />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemType[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemType[0].ShortTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemType[0].ExternalSupplier)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemType[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemType[0].PricePeriodUnit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemType[0].Section)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemType[0].ItemTypeCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemType[0].ItemSupplier)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ItemType)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShortTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExternalSupplier)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PricePeriodUnit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Section.SectionId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemTypeCategory.ItemTypeCategoryId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemSupplier.ItemSupplierId)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ItemTypeId">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ItemTypeId">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ItemTypeId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

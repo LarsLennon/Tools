@@ -1,0 +1,75 @@
+﻿@startuml
+caption SmukTools Entity
+entity Festival  {
+  + FestivalId (PK)
+  --
+  Title
+}
+
+entity Section  {
+  + SectionId (PK)
+  --
+  # FestivalId (FK)
+  Title
+  IsActive
+}
+
+entity ItemSupplier  {
+  + ItemSupplierId (PK)
+  --
+  Name
+  Color
+  Description
+  ContactName
+  ContactEmail
+  ContactPhone
+}
+
+entity ItemType {
+  + ItemTypeId (PK)
+  --
+  # SectionId (FK)
+  # ItemTypeCategoryId (FK)
+  # ItemSupplierId (FK)
+  Title
+  ShortTitle
+  ExternalSupplier
+  Price
+}
+
+entity ItemTypeCategory {
+  + ItemTypeCategoryId (PK)
+  --
+  # SectionId (FK)
+  Title
+}
+
+entity MembaOrder {
+  + MembaOrderId (PK)
+  --
+  # SectionId (FK)
+  # TeamId (FK)
+  # MemberId (FK)
+  OrderNo
+  Created
+  Comment
+}
+
+entity MembaOrderLines {
+  + MembaOrderLineId (PK)
+  --
+  # ItemTypeId (FK)
+  From
+  To
+  Product
+  Amount
+}
+
+Festival --o{ Section
+Section --o{ ItemSupplier
+Section --o{ ItemType
+Section --o{ MembaOrder
+
+MembaOrder --o{ MembaOrderLines
+
+@enduml

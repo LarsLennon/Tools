@@ -1,0 +1,81 @@
+﻿@page
+@model ToolSmukfest.Areas.Admin.Pages.Sections.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Sections</h1>
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="dropdown" style="display: inline;">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                More <div class="caret"></div>
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a asp-action="Create">
+                        <span class="glyphicon glyphicon-plus"></span> New
+                    </a>
+                </li>
+
+                <li>
+                    <a asp-action="Logs" asp-route-id="">
+                        <span class="glyphicon glyphicon-list"></span> View Logs
+                    </a>
+                </li>
+                @*@if (await AuthorizationService.AuthorizeAsync(User, "HelpDeskAccess"))*@
+                {
+                    <li>
+                        <a asp-action="Delete" asp-route-id="" style="color: crimson;">
+                            <span class="glyphicon glyphicon-trash"></span> Delete
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Section[0].FestivalId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Section[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Section[0].IsActive)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Section) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Festival.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.SectionId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.SectionId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.SectionId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

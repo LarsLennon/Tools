@@ -1,0 +1,45 @@
+﻿@page
+@model ToolSmukfest.Areas.Admin.Pages.Sections.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Section</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Section.SectionId" />
+            <div class="form-group">
+                <label asp-for="Section.FestivalId" class="control-label"></label>
+                <input asp-for="Section.FestivalId" class="form-control" />
+                <span asp-validation-for="Section.FestivalId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Section.Title" class="control-label"></label>
+                <input asp-for="Section.Title" class="form-control" />
+                <span asp-validation-for="Section.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Section.IsActive" /> @Html.DisplayNameFor(model => model.Section.IsActive)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

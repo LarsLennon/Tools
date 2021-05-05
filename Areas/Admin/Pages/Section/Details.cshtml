@@ -1,0 +1,46 @@
+﻿@page
+@model ToolSmukfest.Areas.Admin.Pages.Sections.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1><a asp-page="/Festival/Details" asp-route-id="@Model.Section.FestivalId">@Model.Section.Festival.Title</a> > @Model.Section.Title</h1>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="dropdown" style="display: inline;">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                Action <div class="caret"></div>
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a asp-page="/Section/ImportMembaOrders" asp-route-id="@Model.Section.SectionId">
+                        <span class="glyphicon glyphicon-plus"></span> Import Orders
+                    </a>
+                </li>
+                <li>
+                    <a asp-page="/Section/Edit" asp-route-id="@Model.Section.SectionId">
+                        <span class="glyphicon glyphicon-pencil"></span> Edit Section
+                    </a>
+                </li>
+                <li>
+                    <a asp-page="/Section/Delete" asp-route-id="@Model.Section.SectionId">
+                        <span class="glyphicon glyphicon-trash"></span> Delete Section
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<hr />
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Section.IsActive)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Section.IsActive)
+        </dd>
+    </dl>
+</div>

@@ -1,0 +1,41 @@
+﻿@model List<ToolSmukfest.Models.Section> 
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].IsActive)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <a asp-page="/Section/Details" asp-route-id="@item.SectionId">
+                    @Html.DisplayFor(modelItem => item.Title)
+                </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                <a class="btn btn-default" asp-page="/ItemTypes/Index" asp-route-sectionId="@item.SectionId">
+                    <span class="glyphicon glyphicon-list" aria-hidden="true"></span> Types
+                </a>
+                <a class="btn btn-default" asp-page="/ItemTypes/Index" asp-route-id="@item.SectionId">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Slet
+                </a>
+                <a class="btn btn-default" asp-page="/ItemTypes/Index" asp-route-id="@item.SectionId">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Slet
+                </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

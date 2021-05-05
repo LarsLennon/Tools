@@ -1,0 +1,135 @@
+﻿@page
+@model ToolSmukfest.Areas.Admin.Pages.Members.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Members</h1>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="dropdown" style="display: inline;">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                Action <div class="caret"></div>
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a asp-page="/Members/Create">
+                        <span class="glyphicon glyphicon-plus"></span> Create New
+                    </a>
+                </li>
+                <li>
+                    <a asp-page="/Members/MembaSync">
+                        <span class="glyphicon glyphicon-transfer"></span> Sync with Memba
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<hr />
+
+
+
+<input type="search" list="data1" id="searchid" placeholder="EnterMember" />
+<datalist id="data1">
+    @foreach (var item in Model.Member)
+    {
+        <option>@item.Name</option>
+    }
+</datalist>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Description)<br />*@
+                <input type="text" id="txtsearch" placeholder="Søg" />
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Member[0].VirtualMember)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Member[0].CurrentSectionId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Member[0].MembaNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Member[0].Birthday)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Member[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Member[0].EmailAlternate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+            @foreach (var item in Model.Member)
+            {
+                <tr style="display: none;">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VirtualMember)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CurrentSectionId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MembaNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Birthday)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmailAlternate)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.MemberId">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.MemberId">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.MemberId">Delete</a>
+                    </td>
+                </tr>
+            }
+    </tbody>
+</table>
+
+
+
+@section Scripts {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $("#txtsearch").on("keyup", function () {
+            var txtenter = $(this).val();
+            $("table tr").each(function (results) {
+                if (results !== 0) {
+                    var id = $(this).find("td:nth-child(1)").text();
+
+                    if (txtenter.length > 0 && id.toLowerCase().indexOf(txtenter.toLowerCase()) > -1) {
+                        $(this).show();
+                    }
+                    else {
+                        $(this).hide();
+
+                    }
+                    /*
+                    if (id.indexOf(txtenter) !== 0 && id.toLowerCase().indexOf(txtenter.toLowerCase()) < 0) {
+                        $(this).hide();
+                    }
+                    else {
+                        $(this).show();
+
+                    }*/
+                }
+            });
+        });
+    </script>
+}

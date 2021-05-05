@@ -1,0 +1,75 @@
+﻿@page
+@model ToolSmukfest.Areas.Admin.Pages.MembaOrders.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MembaOrder[0].OrderNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MembaOrder[0].Created)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MembaOrder[0].Comment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MembaOrder[0].Team)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MembaOrder[0].Member)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MembaOrder[0].CreatedByMember)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MembaOrder[0].Section)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < 20; i++) {
+            var item = Model.MembaOrder[i];
+        //}
+        //@foreach (var item in Model.MembaOrder) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Created)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Team.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Member.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedByMember.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Section.SectionId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.MembaOrderId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.MembaOrderId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.MembaOrderId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

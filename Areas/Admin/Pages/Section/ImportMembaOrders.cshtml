@@ -1,0 +1,38 @@
+﻿@page
+@model ToolSmukfest.Areas.Admin.Pages.Sections.ImportMembaOrdersModel
+
+@{
+    ViewData["Title"] = "ImportMembaOrders";
+}
+
+<h1>Import UnikkeProduktListe</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    <p>Upload one or more files using this form:</p>
+                    <p>NOTE: File MUST be unicoded.</p>
+                    <input type="file" name="files" Multiple="Multiple" />
+                    <br />
+                        <input type="submit" tevalue="Upload" class="btn btn-primary" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+

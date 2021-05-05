@@ -1,0 +1,64 @@
+﻿@page
+@model ToolSmukfest.Areas.Admin.Pages.Members.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Member</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Member.VirtualMember)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Member.VirtualMember)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Member.CurrentSectionId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Member.CurrentSectionId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Member.MembaNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Member.MembaNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Member.Birthday)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Member.Birthday)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Member.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Member.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Member.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Member.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Member.EmailAlternate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Member.EmailAlternate)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Member.MemberId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

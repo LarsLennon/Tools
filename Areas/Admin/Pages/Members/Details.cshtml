@@ -1,0 +1,61 @@
+﻿@page
+@model ToolSmukfest.Areas.Admin.Pages.Members.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Member</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Member.VirtualMember)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Member.VirtualMember)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Member.CurrentSectionId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Member.CurrentSectionId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Member.MembaNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Member.MembaNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Member.Birthday)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Member.Birthday)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Member.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Member.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Member.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Member.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Member.EmailAlternate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Member.EmailAlternate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Member.MemberId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
