@@ -115,7 +115,7 @@ namespace ToolSmukfest
 
             //var content = response.Content;
 
-            var listOfProjects = _context.MembaOrderLines.Where( m => m.ItemTypeId == 22).ToList();
+            var listOfProjects = _context.MembaOrderLines.Where( m => m.ItemTypeId == 1).ToList();
             var listOfResource = new List<Resources>();
             var listOfEventResources = new List<EventResources>();
             foreach (var item in listOfProjects)
