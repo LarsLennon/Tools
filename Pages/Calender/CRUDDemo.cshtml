@@ -6,11 +6,11 @@
 }
 
 
-<div id='crudcalendar' class="" container-fluid">
+<div id='crudcalendar' class="" container-fluid"></div>
 
-</div>
 
-<div class="modal fade" id="mymodal" tabindex="-1" role="dialog">
+
+<div class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -38,13 +38,13 @@
                 </div>
             </div>
             <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary" id="save-event">Save changes</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
 
 <script>
     // Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
@@ -53,7 +53,7 @@
 // Write your Javascript code.
 
     document.addEventListener('DOMContentLoaded', function () {
-        jQuery.noConflict(); 
+        jQuery.noConflict();
     var calendarEl = document.getElementById('crudcalendar');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -71,12 +71,13 @@
             //$('.modal').modal('show');
 
         },
-        eventClick: function (event, element) {
+        eventClick: function (event) {
+            alert(event.title);
             // Display the modal and set the values to the event values.
             $('.modal').modal('show');
-            $('.modal').find('#title').val('');
-            $('.modal').find('#starts-at').val('');
-            $('.modal').find('#ends-at').val('');
+            $('.modal').find('#title').val(event.title);
+            $('.modal').find('#starts-at').val(event.start);
+            $('.modal').find('#ends-at').val(event.end);
 
         },
       header: {

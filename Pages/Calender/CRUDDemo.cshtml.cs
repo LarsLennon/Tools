@@ -115,7 +115,7 @@ namespace ToolSmukfest
 
             //var content = response.Content;
 
-            var listOfProjects = _context.MembaOrderLines.Where( m => m.ItemTypeId == 1).ToList();
+            var listOfProjects = _context.MembaOrderLines.Where( m => m.ItemTypeId == 22).ToList();
             var listOfResource = new List<Resources>();
             var listOfEventResources = new List<EventResources>();
             foreach (var item in listOfProjects)
@@ -138,52 +138,15 @@ namespace ToolSmukfest
 
 
                 var evt = new EventResources();
-                evt.title = item.Amount.ToString();
+                evt.title = item.Product + " " + item.MembaOrderLineId.ToString();
                 evt.resourceId = obj.id;
                 evt.id = item.MembaOrderLineId;
                 evt.start = item.From.ToString("yyyy-MM-ddTHH\\:mm\\:ss");
                 evt.end = item.To.ToString("yyyy-MM-ddTHH\\:mm\\:ss");
                 listOfEventResources.Add(evt);
-
             }
+
             Resources = JsonConvert.SerializeObject(listOfResource);
-            /*
-            var listOfProjects = _context.Projects.ToList();
-            var listOfResource = new List<Resources>();
-            foreach (var item in listOfProjects)
-            {
-                var obj = new Resources();
-                obj.id = item.id;
-                obj.title = item.title;
-                if (item.iscomplete)
-                {
-                    obj.status = "Completed";
-                    obj.eventColor = "green";
-                }
-                else
-                {
-                    obj.status = "On Going";
-                    obj.eventColor = "red";
-                }
-                listOfResource.Add(obj);
-
-            }
-            Resources = JsonConvert.SerializeObject(listOfResource);
-            
-            var listOfEvents = _context.Events.ToList();
-            var listOfEventResources = new List<EventResources>();
-            foreach (var item in listOfEvents)
-            {
-                var obj = new EventResources();
-                obj.title = item.title;
-                obj.resourceId = item.ProjectId;
-                obj.id = item.id;
-                obj.start = item.StartDate.ToString("yyyy-MM-ddTHH\\:mm\\:ss");
-                obj.end = item.EndDate.ToString("yyyy-MM-ddTHH\\:mm\\:ss");
-                listOfEventResources.Add(obj);
-
-            }
-            */
             Events = JsonConvert.SerializeObject(listOfEventResources);
         }
     }
