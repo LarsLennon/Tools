@@ -58,7 +58,8 @@
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
       plugins: [ 'interaction', 'dayGrid', 'timeGrid', 'resourceTimeline' ],
-      now:  '@DateTime.Now.ToString("yyyy-MM-dd")' ,
+      now: '@DateTime.Now.ToString("yyyy-MM-dd")',
+      defaultDate: '2021-06-01"',
       editable: true,
       aspectRatio: window.devicePixelRatio,
         scrollTime: '00:00',

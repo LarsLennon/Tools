@@ -42,13 +42,13 @@ namespace ToolSmukfest.API
         {
 
             var item = _applicationDbContext.MembaOrderLines.SingleOrDefault(m => m.MembaOrderLineId == id);
-            _applicationDbContext.MembaOrderLines.Remove(item);
-            _applicationDbContext.SaveChanges();
+            //_applicationDbContext.MembaOrderLines.Remove(item);
+            //_applicationDbContext.SaveChanges();
             //var line = _applicationDbContext.MembaOrderLines.SingleOrDefault(m => m.MembaOrderLineId == id);
-            //if(line != null)
-            //{
-            //    return line.Product + " " + line.Amount + " " + line.From + " " + line.To;
-            //}
+            if (item != null)
+            {
+                return item.Product + " " + item.Amount + " " + item.From + " " + item.To;
+            }
             return "";
         }
         // POST api/<MembaOrderLines>
