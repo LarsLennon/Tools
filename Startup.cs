@@ -85,14 +85,19 @@ namespace ToolSmukfest
 
             app.UseAuthentication();
             app.UseAuthorization();
-            //app.UseMvcWithDefaultRoute();
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapRazorPages();
                 endpoints.MapControllers();
                 endpoints.MapControllerRoute(
+                         name: "DefaultApiRoute",
+                         pattern: "api/{controller}/{id}"
+                     );
+                endpoints.MapControllerRoute(
                     name: "Admin",
-                    pattern: "{area:exists}/{controller}/{action=Index}/{id?}");
+                    pattern: "{area:exists}/{controller}/{action=Index}/{id?}"
+                    );
                 endpoints.MapRazorPages();
             });
         }
