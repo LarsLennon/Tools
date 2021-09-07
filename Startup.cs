@@ -33,11 +33,12 @@ namespace ToolSmukfest
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddRazorPages();
-
+            services.AddControllers();
 
             services.AddAuthentication("CookieAuthentication")
                  .AddCookie("CookieAuthentication", config =>

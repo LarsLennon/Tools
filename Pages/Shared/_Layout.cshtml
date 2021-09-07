@@ -51,56 +51,60 @@
                 </div>
 
                 @*<div class="navbar-header">
-            <a class="navbar-brand" href="#">WebSiteName</a>
-        </div>*@
+                        <a class="navbar-brand" href="#">WebSiteName</a>
+                    </div>*@
             </div>
         </nav>
 
         @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">ToolSmukfest</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
-                    <partial name="_LoginSection" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy12</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy1</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Admin" asp-page="/Index">Admin</a>
-                        </li>
-                        <li class="dropdown nav-item text-dark">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                Page 1
-                            </a>
-                        </li>
-                    </ul>
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-page="/Index">ToolSmukfest</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                        <partial name="_LoginPartial" />
+                        <partial name="_LoginSection" />
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy12</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy1</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Admin" asp-page="/Index">Admin</a>
+                            </li>
+                            <li class="dropdown nav-item text-dark">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Page 1
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>*@
+            </nav>*@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
 
             @if (TempData["Message-Content"] != null)
             {
-            <div class="alert alert-dismissible fade in alert-@TempData["Message-Type"]" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>@Html.Raw(TempData["Message-Content"])</strong>
-            </div>
+                <div class="alert alert-dismissible fade in alert-@TempData["Message-Type"]" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>@Html.Raw(TempData["Message-Content"])</strong>
+                </div>
             }
             @RenderBody()
         </main>
+    </div>
+
+    <div class="container-fluid">
+        @RenderSection("containerFluid", required: false)
     </div>
 
     <footer class="border-top footer text-muted">
@@ -112,7 +116,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>

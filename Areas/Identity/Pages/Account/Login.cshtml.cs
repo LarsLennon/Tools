@@ -77,7 +77,7 @@ namespace ToolSmukfest.Areas.Identity.Pages.Account
         }
 
 
-        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+        public IActionResult OnPostAsync(string returnUrl = null)
         {
             returnUrl = returnUrl ?? Url.Content("~/");
 
@@ -129,10 +129,10 @@ namespace ToolSmukfest.Areas.Identity.Pages.Account
                         // redirect response value.
                     };
 
-                    await HttpContext.SignInAsync(
+                    HttpContext.SignInAsync(
                        "CookieAuthentication",
                         new ClaimsPrincipal(claimsIdentity), authProperties);
-                    var  user = await _userManager.GetUserAsync(HttpContext.User);
+                    var  user =  _userManager.GetUserAsync(HttpContext.User);
                     
                     _logger.LogInformation("User logged in.");
                     return RedirectToAction("/Admin");

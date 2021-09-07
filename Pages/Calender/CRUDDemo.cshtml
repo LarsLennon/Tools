@@ -6,47 +6,49 @@
 }
 
 
-<div id='crudcalendar' class="" container-fluid"></div>
+@section containerFluid
+{
+    <div id='crudcalendar'></div>
+    }
 
 
-
-<div class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Create new event</h4>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <label class="col-xs-4" for="title">Event title</label>
-                        <input type="text" name="title" id="title" />
+    <div class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Create new event</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <label class="col-xs-4" for="title">Event title</label>
+                            <input type="text" name="title" id="title" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <label class="col-xs-4" for="starts-at">Starts at</label>
+                            <input type="text" name="starts_at" id="starts-at" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <label class="col-xs-4" for="ends-at">Ends at</label>
+                            <input type="text" name="ends_at" id="ends-at" />
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <label class="col-xs-4" for="starts-at">Starts at</label>
-                        <input type="text" name="starts_at" id="starts-at" />
-                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="save-event">Save changes</button>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <label class="col-xs-4" for="ends-at">Ends at</label>
-                        <input type="text" name="ends_at" id="ends-at" />
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="save-event">Save changes</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
-<script>
+    <script>
     // Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 // for details on configuring this project to bundle and minify static web assets.
 
@@ -112,4 +114,4 @@
 calendar.setOption('height', window.innerHeight-100);
     calendar.render();
   });
-</script>
+    </script>

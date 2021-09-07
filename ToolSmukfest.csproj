@@ -62,6 +62,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="API\" />
     <Folder Include="Areas\Admin\Pages\ItemCategories\" />
     <Folder Include="Data\Migrations\" />
   </ItemGroup>
