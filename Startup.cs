@@ -89,10 +89,10 @@ namespace ToolSmukfest
             {
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
-                endpoints.MapControllerRoute(
-                         name: "DefaultApiRoute",
-                         pattern: "api/{controller}/{id}"
-                     );
+                //endpoints.MapControllerRoute(
+                //         name: "DefaultApiRoute",
+                //         pattern: "api/{controller}/{id}"
+                //     );
                 endpoints.MapControllerRoute(
                     name: "Admin",
                     pattern: "{area:exists}/{controller}/{action=Index}/{id?}"

@@ -9,7 +9,7 @@ using ToolSmukfest.Data;
 
 namespace ToolSmukfest.API
 {
-    [Route("api/[controller]")]
+    [Route("~/api/[controller]")]
     [ApiController]
     public class MembaOrderLines : ControllerBase
     {
